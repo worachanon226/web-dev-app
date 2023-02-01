@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>PuNe Studio</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -20,8 +20,11 @@
     ></script>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg border-bottom">
+  <body id="home">
+    <nav
+      class="navbar navbar-expand-lg border-bottom"
+      style="margin-bottom: 20px"
+    >
       <div class="container-lg">
         <a class="font-display fw-bold navbar-brand" href="#">PuNe Studio</a>
         <button
@@ -32,38 +35,38 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse" id="navbar">
+        <div class="navbar-collapse justify-content-end" id="navbar">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Popular</a>
+              <a class="nav-link" href="#popular">Popular</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Blogs</a>
+              <a class="nav-link" href="#blogs">Blogs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#about">About</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <main class="justify-content-center">
+    <main class="container">
       <div
-        class="d-flex position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light w-100 text-end"
+        class="d-flex position-relative overflow-hidden p-sm-5 bg-light w-100 text-end justify-content-between"
+        style="border-radius: 21px 21px 21px 21px"
       >
         <div class="d-flex align-items-center justify-content-center">
           <img
             src="https://avatars.githubusercontent.com/u/57552176?v=4"
-            class="img-fluid rounded-circle float-start w-75"
-            alt="Responsive image"
+            class="rounded-circle float-start w-75"
           />
         </div>
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <div class="justify-content-end col-md-5">
           <h1 class="display-4 fw-normal">Worachanon Chaiprasertsud</h1>
           <p class="lead fw-normal">
-            And an even wittier subheading to boot. Jumpstart your marketing
-            efforts with this example based on Apple’s marketing pages.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Blanditiis, qui?
           </p>
           <a
             class="btn btn-outline-success"
@@ -73,34 +76,243 @@
           >
         </div>
       </div>
-      <div class="display-5 fw-normal p-lg-3">Popular</div>
+      <div class="container">
+        <div
+          class="display-5 fw-normal p-lg-3"
+          id="popular"
+          style="margin: 10px"
+        >
+          Popular
+        </div>
 
-      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-        <div
-          class="text-bg-dark container me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-        >
-          <div class="my-3 py-3">
-            <h2 class="display-5">Another headline</h2>
-            <p class="lead">And an even wittier subheading.</p>
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+            <p class="col-md-8 fs-4">
+              Using a series of utilities, you can create this jumbotron, just
+              like the one in previous versions of Bootstrap. Check out the
+              examples below for how you can remix and restyle it to your
+              liking.
+            </p>
+            <button class="btn btn-primary btn-lg" type="button">
+              Example button
+            </button>
           </div>
-          <div
-            class="bg-light shadow-sm mx-auto"
-            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-          ></div>
         </div>
-        <div
-          class="bg-light container me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-        >
-          <div class="my-3 p-3">
-            <h2 class="display-5">Another headline</h2>
-            <p class="lead">And an even wittier subheading.</p>
+
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-bg-dark rounded-3">
+              <h2>Change the background</h2>
+              <p>
+                Swap the background-color utility and add a `.text-*` color
+                utility to mix up the jumbotron look. Then, mix and match with
+                additional component themes and more.
+              </p>
+              <button class="btn btn-outline-light" type="button">
+                Example button
+              </button>
+            </div>
           </div>
-          <div
-            class="bg-dark shadow-sm mx-auto"
-            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-          ></div>
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+              <h2>Add borders</h2>
+              <p>
+                Or, keep it light and add a border for some added definition to
+                the boundaries of your content. Be sure to look under the hood
+                at the source HTML here as we've adjusted the alignment and
+                sizing of both column's content for equal-height.
+              </p>
+              <button class="btn btn-outline-secondary" type="button">
+                Example button
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="display-5 fw-normal p-lg-3" id="blogs" style="margin: 10px">
+        Blogs
+      </div>
+      <div class="bg-light p-5 mb-4">
+        <article class="blog-post">
+          <h2 class="blog-post-title mb-1">Sample blog post</h2>
+          <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
+
+          <p>
+            This blog post shows a few different types of content that’s
+            supported and styled with Bootstrap. Basic typography, lists,
+            tables, images, code, and more are all supported as expected.
+          </p>
+          <hr />
+          <p>
+            This is some additional paragraph placeholder content. It has been
+            written to fill the available space and show how a longer snippet of
+            text affects the surrounding content. We'll repeat it often to keep
+            the demonstration flowing, so be on the lookout for this exact same
+            string of text.
+          </p>
+          <h2>Blockquotes</h2>
+          <p>This is an example blockquote in action:</p>
+          <blockquote class="blockquote">
+            <p>Quoted text goes here.</p>
+          </blockquote>
+          <p>
+            This is some additional paragraph placeholder content. It has been
+            written to fill the available space and show how a longer snippet of
+            text affects the surrounding content. We'll repeat it often to keep
+            the demonstration flowing, so be on the lookout for this exact same
+            string of text.
+          </p>
+          <h3>Example lists</h3>
+          <p>
+            This is some additional paragraph placeholder content. It's a
+            slightly shorter version of the other highly repetitive body text
+            used throughout. This is an example unordered list:
+          </p>
+          <ul>
+            <li>First list item</li>
+            <li>Second list item with a longer description</li>
+            <li>Third list item to close it out</li>
+          </ul>
+          <p>And this is an ordered list:</p>
+          <ol>
+            <li>First list item</li>
+            <li>Second list item with a longer description</li>
+            <li>Third list item to close it out</li>
+          </ol>
+          <p>And this is a definition list:</p>
+          <dl>
+            <dt>HyperText Markup Language (HTML)</dt>
+            <dd>
+              The language used to describe and define the content of a Web page
+            </dd>
+            <dt>Cascading Style Sheets (CSS)</dt>
+            <dd>Used to describe the appearance of Web content</dd>
+            <dt>JavaScript (JS)</dt>
+            <dd>
+              The programming language used to build advanced Web sites and
+              applications
+            </dd>
+          </dl>
+          <h2>Inline HTML elements</h2>
+          <p>
+            HTML defines a long list of available inline tags, a complete list
+            of which can be found on the
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"
+              >Mozilla Developer Network</a
+            >.
+          </p>
+          <ul>
+            <li>
+              <strong>To bold text</strong>, use
+              <code class="language-plaintext highlighter-rouge"
+                >&lt;strong&gt;</code
+              >.
+            </li>
+            <li>
+              <em>To italicize text</em>, use
+              <code class="language-plaintext highlighter-rouge"
+                >&lt;em&gt;</code
+              >.
+            </li>
+            <li>
+              Abbreviations, like
+              <abbr title="HyperText Markup Language">HTML</abbr> should use
+              <code class="language-plaintext highlighter-rouge"
+                >&lt;abbr&gt;</code
+              >, with an optional
+              <code class="language-plaintext highlighter-rouge">title</code>
+              attribute for the full phrase.
+            </li>
+            <li>
+              Citations, like <cite>— Mark Otto</cite>, should use
+              <code class="language-plaintext highlighter-rouge"
+                >&lt;cite&gt;</code
+              >.
+            </li>
+            <li>
+              <del>Deleted</del> text should use
+              <code class="language-plaintext highlighter-rouge"
+                >&lt;del&gt;</code
+              >
+              and <ins>inserted</ins> text should use
+              <code class="language-plaintext highlighter-rouge"
+                >&lt;ins&gt;</code
+              >.
+            </li>
+            <li>
+              Superscript <sup>text</sup> uses
+              <code class="language-plaintext highlighter-rouge"
+                >&lt;sup&gt;</code
+              >
+              and subscript <sub>text</sub> uses
+              <code class="language-plaintext highlighter-rouge"
+                >&lt;sub&gt;</code
+              >.
+            </li>
+          </ul>
+          <p>
+            Most of these elements are styled by browsers with few modifications
+            on our part.
+          </p>
+          <h2>Heading</h2>
+          <p>
+            This is some additional paragraph placeholder content. It has been
+            written to fill the available space and show how a longer snippet of
+            text affects the surrounding content. We'll repeat it often to keep
+            the demonstration flowing, so be on the lookout for this exact same
+            string of text.
+          </p>
+          <h3>Sub-heading</h3>
+          <p>
+            This is some additional paragraph placeholder content. It has been
+            written to fill the available space and show how a longer snippet of
+            text affects the surrounding content. We'll repeat it often to keep
+            the demonstration flowing, so be on the lookout for this exact same
+            string of text.
+          </p>
+          <pre><code>Example code block</code></pre>
+          <p>
+            This is some additional paragraph placeholder content. It's a
+            slightly shorter version of the other highly repetitive body text
+            used throughout.
+          </p>
+        </article>
+      </div>
+
+      <div class="display-5 fw-normal p-lg-3" id="about" style="margin: 10px">
+        About
+      </div>
+      <div class="container bg-light p-5 mb-4">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
+          molestias ipsa veritatis nihil iusto maiores natus dolor, a reiciendis
+          corporis obcaecati ex. Totam assumenda impedit aut eum, illum
+          distinctio saepe explicabo. Consequuntur molestiae similique id quos,
+          quasi quas perferendis laboriosam, fugit natus odit totam! Id dolores
+          saepe, sint debitis rerum dolorem tempora aliquid, pariatur enim nisi.
+          Quia ab iusto assumenda.
+        </p>
       </div>
     </main>
   </body>
+
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item">
+        <a href="#home" class="nav-link px-2 text-muted">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#popular" class="nav-link px-2 text-muted">Popular</a>
+      </li>
+      <li class="nav-item">
+        <a href="#blogs" class="nav-link px-2 text-muted">Blogs</a>
+      </li>
+      <li class="nav-item">
+        <a href="#about" class="nav-link px-2 text-muted">About</a>
+      </li>
+    </ul>
+    <p class="text-center text-muted">© PuNe Studio</p>
+  </footer>
 </html>
