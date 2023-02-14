@@ -6,9 +6,9 @@
     <div id="maincontainer"></div>
     <script>
       //header
-      const h1 = document.createElement("h2");
+      const h2 = document.createElement("h2");
       const mainText = document.createTextNode("Exercise 04:JavaScript&DOM");
-      h1.appendChild(mainText);
+      h2.appendChild(mainText);
 
       //button
       const date = new Date();
@@ -21,10 +21,23 @@
       const newLine = document.createElement("br");
 
       //personal main
-      const p1 = document.createElement("p");
       const a1 = document.createElement("a");
       a1.append(document.createTextNode("Personal Info"));
-      p1.append(a1);
+
+      a1.onmouseleave = () => {
+        const css =
+          "text-decoration: underline;" + "color:blue;" + "cursor: pointer";
+        a1.style = css;
+      };
+
+      a1.onmouseover = () => {
+        const css =
+          "text-decoration: underline;" +
+          "color:blue;" +
+          "background-color:yellow;" +
+          "cursor: pointer";
+        a1.style = css;
+      };
 
       //personal info
       const divInfo = document.createElement("div");
@@ -39,8 +52,9 @@
 
       ul.append(name, sub, sem);
       divInfo.append(ul);
+      divInfo.style.display = "none";
 
-      p1.onclick = () => {
+      a1.onclick = () => {
         if (divInfo.style.display === "none") {
           divInfo.style.display = "block";
         } else {
@@ -48,10 +62,53 @@
         }
       };
 
+      //Snapshots
+      const h1 = document.createElement("h1");
+      const snapString = document.createTextNode("Snapshots");
+      h1.appendChild(snapString);
+
+      //Pictures List
+      const ulPic = document.createElement("ul");
+      const liFireWork = document.createElement("li");
+      const liCrest = document.createElement("li");
+      const liAction = document.createElement("li");
+      const liBuffalo = document.createElement("li");
+
+      liFireWork.innerHTML = "Firework";
+      liCrest.innerHTML = "Crest";
+      liAction.innerHTML = "Action";
+      liBuffalo.innerHTML = "Buffalo";
+
+      ulPic.append(liFireWork, liCrest, liAction, liBuffalo);
+
+      //Bottom
+      const img = new Image();
+      img.src =
+        "http://eneng.kmitl.ac.th/wp-content/themes/kmitl-wp/images/logo-kmitl.png";
+
+      liFireWork.onclick = () => {
+        img.src =
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Spider-Firework-Omiya-Japan.jpg/220px-Spider-Firework-Omiya-Japan.jpg";
+      };
+
+      liCrest.onclick = () => {
+        img.src =
+          "https://static.vecteezy.com/system/resources/thumbnails/007/923/926/small/royal-luxury-heraldic-crest-logo-design-concept-template-vector.jpg";
+      };
+
+      liAction.onclick = () => {
+        img.src = "https://www.barksdalephoto.com/img/sprinter.jpg";
+      };
+
+      liBuffalo.onclick = () => {
+        img.src =
+          "https://cdn.britannica.com/66/6666-050-1A5103B6/American-bison-plains-buffalo.jpg?w=400&h=300&c=crop";
+      };
+
       //add children
       document
         .getElementById("maincontainer")
-        .append(h1, b1, newLine, p1, divInfo);
+        .append(h2, b1, newLine, a1, divInfo, h1, ulPic, img);
     </script>
   </body>
 </html>
