@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-        <div id="maincontainer"></div>
-        <script>
 
-        </script>
-    </body>
+<html>
+  <head></head>
+  <body>
+    <div id="maincontainer"></div>
+    <script>
+      //header
+      const h1 = document.createElement("h1");
+      const mainText = document.createTextNode("Exercise 04:JavaScript&DOM");
+      h1.appendChild(mainText);
+
+      //button
+      const date = new Date();
+      const b1 = document.createElement("button");
+      b1.innerHTML = date;
+
+      const newLine = document.createElement("br");
+
+      //personal info
+      const a1 = document.createElement("a");
+      const personalText = document.createTextNode(
+        "Exercise 04:JavaScript&DOM"
+      );
+      a1.appendChild(personalText);
+
+      //add children
+      document.getElementById("maincontainer").append(h1, b1, newLine, a1);
+    </script>
+  </body>
 </html>
