@@ -5,29 +5,46 @@
   <body>
     <div id="maincontainer"></div>
     <script>
+      const newLine = document.createElement("br");
+
       //header
       const h2 = document.createElement("h2");
       const mainText = document.createTextNode("Exercise 04:JavaScript&DOM");
       h2.appendChild(mainText);
 
-      //button
+      //button Clock
+      const divClock = document.createElement("div");
       const date = new Date();
       const b1 = document.createElement("button");
       b1.innerHTML = "Click me to display Date and Time";
       b1.onclick = () => {
         b1.innerHTML = date;
       };
+      divClock.append(b1);
 
-      const newLine = document.createElement("br");
+      var w;
+
+      function start() {
+        if (typeof w == "undefined") {
+          w = new Worker(function counter() {
+            const color = Math.floor(Math.random() * 16777215).toString(16);
+            b1.style = "color:" + color;
+            setTimeout("counter()", 1000);
+          }, counter());
+        }
+      }
 
       //personal main
       const a1 = document.createElement("a");
       a1.append(document.createTextNode("Personal Info"));
 
+      const defaulta1 =
+        "text-decoration: underline;" + "color:Orchid;" + "cursor: pointer";
+
+      a1.style = defaulta1;
+
       a1.onmouseleave = () => {
-        const css =
-          "text-decoration: underline;" + "color:blue;" + "cursor: pointer";
-        a1.style = css;
+        a1.style = defaulta1;
       };
 
       a1.onmouseover = () => {
@@ -68,7 +85,9 @@
       h1.appendChild(snapString);
 
       //Pictures List
+
       const ulPic = document.createElement("ul");
+
       const liFireWork = document.createElement("li");
       const liCrest = document.createElement("li");
       const liAction = document.createElement("li");
@@ -108,7 +127,7 @@
       //add children
       document
         .getElementById("maincontainer")
-        .append(h2, b1, newLine, a1, divInfo, h1, ulPic, img);
+        .append(h2, divClock, newLine, a1, divInfo, h1, ulPic, img);
     </script>
   </body>
 </html>
