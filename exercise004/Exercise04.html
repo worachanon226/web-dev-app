@@ -6,26 +6,52 @@
     <div id="maincontainer"></div>
     <script>
       //header
-      const h1 = document.createElement("h1");
+      const h1 = document.createElement("h2");
       const mainText = document.createTextNode("Exercise 04:JavaScript&DOM");
       h1.appendChild(mainText);
 
       //button
       const date = new Date();
       const b1 = document.createElement("button");
-      b1.innerHTML = date;
+      b1.innerHTML = "Click me to display Date and Time";
+      b1.onclick = () => {
+        b1.innerHTML = date;
+      };
 
       const newLine = document.createElement("br");
 
-      //personal info
+      //personal main
+      const p1 = document.createElement("p");
       const a1 = document.createElement("a");
-      const personalText = document.createTextNode(
-        "Exercise 04:JavaScript&DOM"
-      );
-      a1.appendChild(personalText);
+      a1.append(document.createTextNode("Personal Info"));
+      p1.append(a1);
+
+      //personal info
+      const divInfo = document.createElement("div");
+      const ul = document.createElement("ul");
+      const name = document.createElement("li");
+      const sub = document.createElement("li");
+      const sem = document.createElement("li");
+
+      name.innerHTML = "Worachanon Chaiprasertsud, ID 64010755";
+      sub.innerHTML = "Web Dev";
+      sem.innerHTML = "2/2565";
+
+      ul.append(name, sub, sem);
+      divInfo.append(ul);
+
+      p1.onclick = () => {
+        if (divInfo.style.display === "none") {
+          divInfo.style.display = "block";
+        } else {
+          divInfo.style.display = "none";
+        }
+      };
 
       //add children
-      document.getElementById("maincontainer").append(h1, b1, newLine, a1);
+      document
+        .getElementById("maincontainer")
+        .append(h1, b1, newLine, p1, divInfo);
     </script>
   </body>
 </html>
