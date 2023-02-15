@@ -9,65 +9,98 @@
 
       //header
       const h2 = document.createElement("h2");
-      const mainText = document.createTextNode("Exercise 04:JavaScript&DOM");
-      h2.appendChild(mainText);
+      h2.innerHTML = "Exercise 04:JavaScript&DOM";
 
       //button Clock
-      const divClock = document.createElement("div");
-      const date = new Date();
-      const b1 = document.createElement("button");
-      b1.innerHTML = "Click me to display Date and Time";
-      b1.onclick = () => {
-        b1.innerHTML = date;
+      const buttonSt1 = document.createElement("button");
+      const buttonSt2 = document.createElement("button");
+
+      buttonSt1.innerHTML = "Click me to display Date and Time";
+      buttonSt2.hidden = true;
+      buttonSt2.style.position = "fixed";
+      buttonSt2.style.right = "5px";
+      buttonSt2.style.top = "5px";
+
+      buttonSt1.onclick = () => {
+        buttonSt1.hidden = true;
+        buttonSt2.hidden = false;
+        NewWorker();
       };
-      divClock.append(b1);
+
+      var st = 0;
+      buttonSt2.onclick = () => {
+        if (st == 0) {
+          DelWorker();
+          buttonSt2.style.position = "relative";
+        } else {
+          NewWorker();
+          buttonSt2.style.position = "fixed";
+        }
+        st ^= 1;
+      };
+
+      const color = () => {
+        var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        randomColor = randomColor.toLocaleUpperCase();
+        console.log(randomColor.toString());
+        buttonSt2.style.backgroundColor = "#" + randomColor.toString();
+      };
 
       var w;
 
-      function start() {
-        if (typeof w == "undefined") {
-          w = new Worker(function counter() {
-            const color = Math.floor(Math.random() * 16777215).toString(16);
-            b1.style = "color:" + color;
-            setTimeout("counter()", 1000);
-          }, counter());
-        }
-      }
+      const NewWorker = () => {
+        w = new Worker("worker.js");
+        buttonSt2.innerHTML = new Date();
+
+        w.onmessage = (e) => {
+          buttonSt2.innerHTML = e.data;
+          color();
+        };
+
+        return w;
+      };
+
+      const DelWorker = () => {
+        w.terminate();
+      };
 
       //personal main
+      const diva1 = document.createElement("div");
+      diva1.style.marginTop = "25px";
       const a1 = document.createElement("a");
-      a1.append(document.createTextNode("Personal Info"));
-
-      const defaulta1 =
-        "text-decoration: underline;" + "color:Orchid;" + "cursor: pointer";
-
-      a1.style = defaulta1;
+      a1.innerHTML = "Personal Info";
+      a1.href = "#";
 
       a1.onmouseleave = () => {
-        a1.style = defaulta1;
+        a1.style.backgroundColor = "transparent";
       };
 
       a1.onmouseover = () => {
-        const css =
-          "text-decoration: underline;" +
-          "color:blue;" +
-          "background-color:yellow;" +
-          "cursor: pointer";
-        a1.style = css;
+        a1.style.textDecoration = "underline";
+        a1.style.backgroundColor = "yellow";
+        a1.style.color = "blue";
       };
+
+      diva1.append(a1);
 
       //personal info
       const divInfo = document.createElement("div");
       const ul = document.createElement("ul");
-      const name = document.createElement("li");
-      const sub = document.createElement("li");
-      const sem = document.createElement("li");
 
-      name.innerHTML = "Worachanon Chaiprasertsud, ID 64010755";
-      sub.innerHTML = "Web Dev";
-      sem.innerHTML = "2/2565";
+      info = [
+        ["Worachanon Chaiprasertsud, ID 64010755"],
+        ["Subject: Web Application Development"],
+        ["Semester: 2/2565"],
+      ];
 
-      ul.append(name, sub, sem);
+      for (let i = 0; i < info.lenght; i++) {}
+
+      info.forEach((e) => {
+        const li = document.createElement("li");
+        li.innerHTML = e;
+        ul.append(li);
+      });
+
       divInfo.append(ul);
       divInfo.style.display = "none";
 
@@ -81,53 +114,61 @@
 
       //Snapshots
       const h1 = document.createElement("h1");
-      const snapString = document.createTextNode("Snapshots");
-      h1.appendChild(snapString);
+      h1.innerHTML = "Snapshots";
 
       //Pictures List
 
       const ulPic = document.createElement("ul");
 
-      const liFireWork = document.createElement("li");
-      const liCrest = document.createElement("li");
-      const liAction = document.createElement("li");
-      const liBuffalo = document.createElement("li");
+      pictures = [
+        [
+          "Fireworks",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Spider-Firework-Omiya-Japan.jpg/220px-Spider-Firework-Omiya-Japan.jpg",
+        ],
+        [
+          "Crest",
+          "https://static.vecteezy.com/system/resources/thumbnails/007/923/926/small/royal-luxury-heraldic-crest-logo-design-concept-template-vector.jpg",
+        ],
+        ["Action", "https://www.barksdalephoto.com/img/sprinter.jpg"],
+        [
+          "Buffalo",
+          "https://cdn.britannica.com/66/6666-050-1A5103B6/American-bison-plains-buffalo.jpg?w=400&h=300&c=crop",
+        ],
+      ];
 
-      liFireWork.innerHTML = "Firework";
-      liCrest.innerHTML = "Crest";
-      liAction.innerHTML = "Action";
-      liBuffalo.innerHTML = "Buffalo";
+      pictures.forEach((e) => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
 
-      ulPic.append(liFireWork, liCrest, liAction, liBuffalo);
+        a.innerHTML = e[0];
+        a.href = "#";
+        a.onclick = () => {
+          img.src = e[1];
+        };
+
+        li.append(a);
+        ulPic.append(li);
+      });
 
       //Bottom
       const img = new Image();
       img.src =
         "http://eneng.kmitl.ac.th/wp-content/themes/kmitl-wp/images/logo-kmitl.png";
 
-      liFireWork.onclick = () => {
-        img.src =
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Spider-Firework-Omiya-Japan.jpg/220px-Spider-Firework-Omiya-Japan.jpg";
-      };
-
-      liCrest.onclick = () => {
-        img.src =
-          "https://static.vecteezy.com/system/resources/thumbnails/007/923/926/small/royal-luxury-heraldic-crest-logo-design-concept-template-vector.jpg";
-      };
-
-      liAction.onclick = () => {
-        img.src = "https://www.barksdalephoto.com/img/sprinter.jpg";
-      };
-
-      liBuffalo.onclick = () => {
-        img.src =
-          "https://cdn.britannica.com/66/6666-050-1A5103B6/American-bison-plains-buffalo.jpg?w=400&h=300&c=crop";
-      };
-
       //add children
       document
         .getElementById("maincontainer")
-        .append(h2, divClock, newLine, a1, divInfo, h1, ulPic, img);
+        .append(
+          h2,
+          buttonSt1,
+          buttonSt2,
+          newLine,
+          diva1,
+          divInfo,
+          h1,
+          ulPic,
+          img
+        );
     </script>
   </body>
 </html>
