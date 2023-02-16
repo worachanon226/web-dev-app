@@ -12,14 +12,15 @@
       h2.innerHTML = "Exercise 04:JavaScript&DOM";
 
       //button Clock
+
       const buttonSt1 = document.createElement("button");
       const buttonSt2 = document.createElement("button");
 
       buttonSt1.innerHTML = "Click me to display Date and Time";
       buttonSt2.hidden = true;
       buttonSt2.style.position = "fixed";
-      buttonSt2.style.right = "5px";
-      buttonSt2.style.top = "5px";
+      buttonSt2.style.right = "0";
+      buttonSt2.style.top = "0";
 
       buttonSt1.onclick = () => {
         buttonSt1.hidden = true;
@@ -39,11 +40,20 @@
         st ^= 1;
       };
 
+      var cnt = 0;
       const color = () => {
-        var randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        randomColor = randomColor.toLocaleUpperCase();
-        console.log(randomColor.toString());
-        buttonSt2.style.backgroundColor = "#" + randomColor.toString();
+        colorBG = ["red", "green", "blue", "salmon", "lightgreen", "aqua"];
+        colorTxt = [
+          "darkgreen",
+          "crimson",
+          "darkorange",
+          "darkblue",
+          "darkred",
+          "orangered",
+        ];
+        buttonSt2.style.color = colorTxt[cnt];
+        buttonSt2.style.backgroundColor = colorBG[cnt];
+        cnt = (cnt + 1) % 6;
       };
 
       var w;
@@ -69,10 +79,12 @@
       diva1.style.marginTop = "25px";
       const a1 = document.createElement("a");
       a1.innerHTML = "Personal Info";
+      a1.style.color = "pink";
       a1.href = "#";
 
       a1.onmouseleave = () => {
         a1.style.backgroundColor = "transparent";
+        a1.style.color = "pink";
       };
 
       a1.onmouseover = () => {
@@ -93,8 +105,6 @@
         ["Semester: 2/2565"],
       ];
 
-      for (let i = 0; i < info.lenght; i++) {}
-
       info.forEach((e) => {
         const li = document.createElement("li");
         li.innerHTML = e;
@@ -102,6 +112,7 @@
       });
 
       divInfo.append(ul);
+      divInfo.hidden = true;
       divInfo.style.display = "none";
 
       a1.onclick = () => {
@@ -123,11 +134,11 @@
       pictures = [
         [
           "Fireworks",
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Spider-Firework-Omiya-Japan.jpg/220px-Spider-Firework-Omiya-Japan.jpg",
+          "https://cdn.britannica.com/82/128182-004-29AAA705/celebration-fireworks-Fourth-of-July-Oregon-Portland.jpg",
         ],
         [
           "Crest",
-          "https://static.vecteezy.com/system/resources/thumbnails/007/923/926/small/royal-luxury-heraldic-crest-logo-design-concept-template-vector.jpg",
+          "https://graphicriver.img.customer.envatousercontent.com/files/261209334/preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&w=590&h=590&s=5c39349bb9170938a4a7958f88b3a75e",
         ],
         ["Action", "https://www.barksdalephoto.com/img/sprinter.jpg"],
         [
