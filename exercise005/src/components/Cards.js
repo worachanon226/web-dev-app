@@ -2,6 +2,12 @@ import React from 'react'
 import "./Cards.css"
 
 const Cards = (prob) => {
+
+    let onclick = () => {
+        prob.callback()
+    }
+
+
     return (
         <div className="card">
             <div className="container">
@@ -12,12 +18,12 @@ const Cards = (prob) => {
                 </div>
 
                 <div className="image-container">
-                    <img src={prob.food.img}></img>
+                    <img src={prob.food.img} alt=""></img>
                 </div>
             </div>
 
             <div className='vote-container'>
-                <button>Click to Vote</button>
+                <button onClick={onclick}>Click to Vote</button>
                 <div> MIN</div>
                 <button>Click to Unvote</button>
             </div>
