@@ -5,7 +5,7 @@
   border-radius: 10px;
   border: 3px solid;
   margin: auto;
-  width: 50%;
+  width: 60%;
 }
 
 .container {
@@ -60,9 +60,4 @@
   background-color: lightgreen;
   color: purple;
   height: 50px;
-}
-
-button {
-  font-size: 18px;
-  height: 40px;
 }

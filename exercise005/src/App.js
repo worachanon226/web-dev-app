@@ -19,16 +19,11 @@ function App() {
     }
   ]
 
-  let func = () => {
-    console.log("h")
-    alert("web dev")
-  }
-
   return (
     <div className="App">
       <h1 className="header">โหวตอาหาร</h1>
       {foods.map((e, idx) =>
-        <Cards key={idx} food={e} callback={func} />
+        <Cards key={idx} food={e} />
       )}
     </div>
   );
